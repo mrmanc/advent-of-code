@@ -1,6 +1,7 @@
 ### IntelliJ ###
 
 .idea/
+out/
 
 # Created by https://www.toptal.com/developers/gitignore/api/gradle,kotlin
 # Edit at https://www.toptal.com/developers/gitignore?templates=gradle,kotlin
