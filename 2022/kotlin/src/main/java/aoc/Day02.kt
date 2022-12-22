@@ -7,16 +7,17 @@ fun main() {
 
 class Day02 {
     fun partOne(): Any {
-        val inputText = InputFiles().inputTextForDay(2).replace(Regex("[AX]"), "rock").replace(Regex("[BY]"), "paper")
+        val inputText = InputFiles().inputTextForDay(2)
+            .replace(Regex("[AX]"), "rock")
+            .replace(Regex("[BY]"), "paper")
             .replace(Regex("[CZ]"), "scissors")
-        val moves = mapOf("rock" to 1, "paper" to 2, "scissors" to 3)
-        var roundScores: ArrayList<Int> = ArrayList()
+        val roundScores: ArrayList<Int> = ArrayList()
         for ((p1, p2) in inputText.split("\n").map { round -> round.split(" ") }) {
-            var roundScore = moves.get(p2) ?: 0;
+            var roundScore = score(p2)
             if (p1 == p2) roundScore += 3
-            if (p2.equals("rock") && p1.equals("scissors") || p2.equals("paper") && p1.equals("rock") || p2.equals("scissors") && p1.equals(
-                    "paper"
-                )
+            if (p2.equals("rock") && p1.equals("scissors") 
+                || p2.equals("paper") && p1.equals("rock") 
+                || p2.equals("scissors") && p1.equals("paper")
             ) roundScore += 6
             roundScores.add(roundScore)
         }
