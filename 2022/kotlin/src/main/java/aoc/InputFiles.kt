@@ -9,5 +9,10 @@ class InputFiles {
         val inputText = File(resource.toURI()).readText()
         return inputText
     }
+    internal fun testInputTextForDay(day: Int): String {
+        val resource: URL = javaClass.classLoader.getResource("$day-testdata.txt") ?: throw RuntimeException("Input not found,.")
+        val inputText = File(resource.toURI()).readText()
+        return inputText
+    }
     
 }
